@@ -26,10 +26,10 @@ public class PlayerMove : MonoBehaviour
     {
         if (dir != Vector3.zero)
         {
-            if (Mathf.Sign(transform.forward.x) != Mathf.Sign(dir.x) || Mathf.Sign(transform.forward.z) != Mathf.Sign(dir.z))
-            {
-                transform.Rotate(0, 1, 0);
-            }
+          if (dir != Vector3.zero)
+          {
+           transform.forward = Vector3.Lerp(transform.forward, dir, rotSpeed * Time.deltaTime);
+          }
             // transform.forward = dir; transform.foward는 전방방향(z축)을 뜻하는 속성 dir 뱐수를 대입 
             transform.forward = Vector3.Lerp(transform.forward, dir , rotSpeed * Time.deltaTime);
         }
